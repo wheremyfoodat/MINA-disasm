@@ -72,11 +72,7 @@ pub fn disassemble_compare (instr: u32) -> String {
             format!("cmp/{} r{}, r{}", CONDITION_CODES[condition_code as usize], src1, src2)
         }
 
-        _ => {
-            todo!("Undefined compare opcode: {:01X}", opcode)
-        }
-
-        _ => todo!("Unimplemented compare instruction")
+        _ => todo!("Undefined compare instruction")
     }
 }
 

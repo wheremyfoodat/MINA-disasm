@@ -16,13 +16,13 @@ pub fn disassemble_mov (instr: u32) -> String {
             imm = ((imm as i32) << 20 >> 20) as u32; // Sign extend it
             imm <<= src2; // Shift the immediate by the shift amount specified in src2
 
-            format!("{} r{}, {:08X}", MOVE_OPCODES[opcode as usize], dest, imm)
+            format!("{} r{}, #0x{:08X}", MOVE_OPCODES[opcode as usize], dest, imm)
         }
 
         3 | 4 => {
             let imm = instr & 0xFFFF;
 
-            format!("{} r{}, {:08X}", MOVE_OPCODES[opcode as usize], dest, imm)
+            format!("{} r{}, #0x{:08X}", MOVE_OPCODES[opcode as usize], dest, imm)
         }
 
         8..=10 | 13 | 14 => {
