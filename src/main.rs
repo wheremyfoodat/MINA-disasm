@@ -8,11 +8,10 @@ use crate::cpu::disasm::*;
 use crate::helpers::readFileIntoVec;
 
 fn main() {
-    let binary = readFileIntoVec(&"ROMs/binary.mina".to_string());
+    let binary = readFileIntoVec(&"ROMs/mov.mina".to_string());
     let mut instruction_index = 0;
 
-    // TODO: Don't rely on an exception to close the disassembler
-    loop {
+    while instruction_index < binary.len() {
         let instruction = u32::from_le_bytes (
             [
                 binary[instruction_index], binary[instruction_index+1],
