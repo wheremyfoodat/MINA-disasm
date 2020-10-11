@@ -8,7 +8,7 @@ use crate::cpu::disasm::*;
 use crate::helpers::readFileIntoVec;
 
 fn main() {
-    let binary = readFileIntoVec(&"ROMs/mov.mina".to_string());
+    let binary = readFileIntoVec(&"ROMs/arith.mina".to_string());
     let mut instruction_index = 0;
 
     while instruction_index < binary.len() {

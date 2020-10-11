@@ -38,7 +38,7 @@ pub fn disassemble_arithmetic (instr: u32) -> String {
         }
 
         else { // PCADDI needs special treatment
-            format!("{} #0x{:08X}", ARITHMETIC_IMMEDIATE_OPCODES[opcode as usize], imm)
+            format!("{} r{}, #0x{:08X}", ARITHMETIC_IMMEDIATE_OPCODES[opcode as usize], dest, imm)
         }
     }
 
@@ -48,7 +48,7 @@ pub fn disassemble_arithmetic (instr: u32) -> String {
         }
 
         else {
-            format!("{} r{}", ARITHMETIC_IMMEDIATE_OPCODES[opcode as usize - 8], src2)
+            format!("{} r{}, r{}", ARITHMETIC_REGISTER_OPCODES[opcode as usize - 8], dest, src2)
         }
     }
 }
